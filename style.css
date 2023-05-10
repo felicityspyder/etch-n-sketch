@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;700&display=swap');
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+}
+
+/* create grid*/ 
+
+.container {
+    padding: 10px;
+    height: 600px;
+    width: 600px;
+}
+
+.gridRow {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gridItem {
+    flex: 1;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
