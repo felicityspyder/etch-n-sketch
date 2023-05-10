@@ -1,12 +1,20 @@
-// create grid of quare 16x16 div
+
+const body = document.querySelector('body');
+
+
+// add button to change grid size
+const btn = document.createElement('button');
+btn.setAttribute('class', 'reSize');
+btn.textContent = 'change grid size';
+body.appendChild(btn);
 
 // make container <div>
-    const body = document.querySelector('body');
-    const div = document.createElement('div');
-    div.classList.add('container');
-    div.setAttribute('class', 'container');
-    body.appendChild(div);
+const div = document.createElement('div');
+div.classList.add('container');
+div.setAttribute('class', 'container');
+body.appendChild(div);
 
+let gridSize = 16; // initial grid size
 
 
 
@@ -14,6 +22,9 @@
 const container = document.querySelector('.container');
 
 function createGrid(rows, columns) {
+    // remove previous grid
+    container.innerHTML = '';
+
     container.style.display = 'flex';
     container.style.flexDirection = 'column';
 
@@ -37,7 +48,20 @@ function createGrid(rows, columns) {
     }
 }
 
+// create initial grid
+createGrid(gridSize, gridSize);
 
+// Button click event
+btn.addEventListener('click', () => {
+    let newGridSize = prompt('Please enter a new grid size between 16 - 100');
+    
+    // validate the new grid size
+    if (newGridSize >= 16 && newGridSize <= 100) {
+        gridSize = newGridSize;
+        createGrid(gridSize, gridSize);
+    } else {
+        alert('Invalid grid size! Please enter a value between 16 and 100.');
+    }
+     
+});
 
-
-createGrid(16, 16);
